@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Object Properties</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            max-width: 500px;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>JavaScript Object Operation</h2>
+        
+        <h3>1. List of all properties (Before deletion):</h3>
+        <p id="properties-list"></p>
+
+        <h3>2. Object after deleting the 'age' property:</h3>
+        <pre id="object-after-delete"></pre>
+    </div>
+
+    <script>
+        // Sample object
+        var Person = {
+            firstName : "Tony",
+            lastName : "Lee",
+            age : 50,
+            eyeColor : "Blue"
+        };
+
+        // 1. List all properties of the object
+        // 取得物件的所有屬性名稱並用逗號連接
+        var properties = Object.keys(Person).join(", ");
+        document.getElementById("properties-list").textContent = properties;
+
+        // 2. Delete the age property from the object
+        // 刪除 age 屬性
+        delete Person.age;
+
+        // 3. Print the object after deleting the property
+        // 將刪除後的物件轉成 JSON 字串格式印出在網頁上
+        document.getElementById("object-after-delete").textContent = JSON.stringify(Person, null, 4);
+        
+        // 同時也印在開發者工具的 Console 裡面供檢查
+        console.log("Properties before delete:", properties);
+        console.log("Object after delete:", Person);
+    </script>
+
+</body>
+</html>
